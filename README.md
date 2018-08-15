@@ -102,7 +102,7 @@ func recognizeTexts(cvPixelBuffer: CVPixelBuffer) {
 }
 ```
 
-The [`runOCROnImage`](https://github.com/waitingcheung/ARTrailer/blob/a65aab4ef72cc6abe0567e3af926703a8a0fd133/ARTrailer/Support/Image.swift#L20) method uses the Tesseract framework to perform OCR on the preprocessed image. 
+The [`runOCROnImage()`](https://github.com/waitingcheung/ARTrailer/blob/a65aab4ef72cc6abe0567e3af926703a8a0fd133/ARTrailer/Support/Image.swift#L20) method uses the Tesseract framework to perform OCR on the preprocessed image. 
 
 ```swift
 func runOCRonImage(imageRect: CGRect, ciImage: CIImage, tesseract: G8Tesseract) -> String {
