@@ -20,7 +20,7 @@ Run `pod install` and open `ARTrailer.xcworkspace`.
 
 ## Run the AR Session and Process Camera Images
 
-The `ViewController` class manages the AR session and displays AR overlay content in a SceneKit view. ARKit captures video frames from the camera and provides them to the view controller in the [`session(_:didUpdate:)`](x-source-tag://ConsumeARFrames) method, which then calls the `processCurrentImage()` method to perform text recognition.
+The `ViewController` class manages the AR session and displays AR overlay content in a SceneKit view. ARKit captures video frames from the camera and provides them to the view controller in the [`session(_:didUpdate:)`](https://github.com/waitingcheung/ARTrailer/blob/a65aab4ef72cc6abe0567e3af926703a8a0fd133/ARTrailer/ViewController.swift#L143) method, which then calls the `processCurrentImage()` method to perform text recognition.
 
 ```swift
 func session(_ session: ARSession, didUpdate frame: ARFrame) {
@@ -38,7 +38,7 @@ func session(_ session: ARSession, didUpdate frame: ARFrame) {
 
 ## Serialize Image Processing for Real-Time Performance
 
-The [`processCurrentImage()`](x-source-tag://ProcessCurrentImage) method uses the view controlle's `currentBuffer` property to track whether Vision is currently processing an image before starting another Vision task.
+The [`processCurrentImage()`](https://github.com/waitingcheung/ARTrailer/blob/a65aab4ef72cc6abe0567e3af926703a8a0fd133/ARTrailer/ViewController.swift#L163) method uses the view controlle's `currentBuffer` property to track whether Vision is currently processing an image before starting another Vision task.
 
 ```swift
 // Most computer vision tasks are not rotation agnostic so it is important to pass in the orientation of the image with respect to device.
@@ -60,7 +60,7 @@ visionQueue.async {
 
 ## Implement the Text Detector
 
-The code's [`textDetectionHandler()`](x-source-tag://TextDetectionHandler) method and [`rectangleDetectionHandler()`](x-source-tag://RectangleDetectionHandler) method detect regions of the movie poster and detect regions of visible texts on the poster.
+The code's [`textDetectionHandler()`](https://github.com/waitingcheung/ARTrailer/blob/a65aab4ef72cc6abe0567e3af926703a8a0fd133/ARTrailer/ViewController.swift#L97) method and [`rectangleDetectionHandler()`](https://github.com/waitingcheung/ARTrailer/blob/a65aab4ef72cc6abe0567e3af926703a8a0fd133/ARTrailer/ViewController.swift#L118) method detect regions of the movie poster and detect regions of visible texts on the poster.
 
 ```swift
 func textDetectionHandler(request: VNRequest, error: Error?) {
@@ -77,7 +77,7 @@ func textDetectionHandler(request: VNRequest, error: Error?) {
 
 ## Perform Text Recognition
 
-The code's [`recognizeTexts()`](x-source-tag://RecognizeTexts) method performs text recognition on the detected text regions.
+The code's [`recognizeTexts()`](https://github.com/waitingcheung/ARTrailer/blob/a65aab4ef72cc6abe0567e3af926703a8a0fd133/ARTrailer/ViewController.swift#L184) method performs text recognition on the detected text regions.
 
 ```swift
 func recognizeTexts(cvPixelBuffer: CVPixelBuffer) {
@@ -102,7 +102,7 @@ func recognizeTexts(cvPixelBuffer: CVPixelBuffer) {
 }
 ```
 
-The [`runOCROnImage`](x-source-tag://RunOCRonImage) method uses the Tesseract framework to perform OCR on the preprocessed image. 
+The [`runOCROnImage`](https://github.com/waitingcheung/ARTrailer/blob/a65aab4ef72cc6abe0567e3af926703a8a0fd133/ARTrailer/Support/Image.swift#L20) method uses the Tesseract framework to perform OCR on the preprocessed image. 
 
 ```swift
 func runOCRonImage(imageRect: CGRect, ciImage: CIImage, tesseract: G8Tesseract) -> String {
@@ -120,7 +120,7 @@ func runOCRonImage(imageRect: CGRect, ciImage: CIImage, tesseract: G8Tesseract) 
 }
 ```
 
-The code's [`preprocessImage()`](x-source-tag://PreprocessImage) method applis image processing to optimize the camera images of the text regions for OCR.
+The code's [`preprocessImage()`](https://github.com/waitingcheung/ARTrailer/blob/a65aab4ef72cc6abe0567e3af926703a8a0fd133/ARTrailer/Support/Image.swift#L13) method applis image processing to optimize the camera images of the text regions for OCR.
 
 ```swift
 func preprocessImage(image: UIImage) -> UIImage {
@@ -130,13 +130,13 @@ func preprocessImage(image: UIImage) -> UIImage {
 }
 ```
 
-- Note: The accuracy of text recognition depends on the input image. Refer to the Tesseract [documentation][3] for different techniques in preprocessing images. To implement other image processing methods, add them to the [UIImage](x-source-tag://UIImageExtension) extension.
+- Note: The accuracy of text recognition depends on the input image. Refer to the Tesseract [documentation][3] for different techniques in preprocessing images. To implement other image processing methods, add them to the [UIImage](https://github.com/waitingcheung/ARTrailer/blob/a65aab4ef72cc6abe0567e3af926703a8a0fd133/ARTrailer/Support/Image.swift#L46) extension.
 
 [3]:https://github.com/tesseract-ocr/tesseract/wiki/ImproveQuality
 
 ## Add a Video in AR
 
-The [`createVideoAnchor()`](x-source-tag://CreateVideoAnchor) methods adds an anchor to the AR session.
+The [`createVideoAnchor()`](https://github.com/waitingcheung/ARTrailer/blob/a65aab4ef72cc6abe0567e3af926703a8a0fd133/ARTrailer/ViewController.swift#L319) methods adds an anchor to the AR session.
 
 ```swift
 // Create anchor using the camera's current position
@@ -152,7 +152,7 @@ if let currentFrame = sceneView.session.currentFrame {
 }
 ```
 
-Next, after ARKit automatically creates a SceneKit node for the newly added anchor, the [`renderer(_:didAdd:for:)`](x-source-tag://ARSCNViewDelegate) delegate method provides content for that node. In this case, the [`addVideoToSCNNode()`](x-source-tag://AddVideoToSCNNode) method creates a SpriteKit node for the newly added anchor and plays a video at the anchor.
+Next, after ARKit automatically creates a SceneKit node for the newly added anchor, the [`renderer(_:didAdd:for:)`](https://github.com/waitingcheung/ARTrailer/blob/a65aab4ef72cc6abe0567e3af926703a8a0fd133/ARTrailer/ViewController.swift#L335) delegate method provides content for that node. In this case, the [`addVideoToSCNNode()`](https://github.com/waitingcheung/ARTrailer/blob/a65aab4ef72cc6abe0567e3af926703a8a0fd133/ARTrailer/Support/Scene.swift#L14) method creates a SpriteKit node for the newly added anchor and plays a video at the anchor.
 
 ```swift
 func addVideoToSCNNode(url: String, node: SCNNode) {
@@ -178,7 +178,7 @@ func addVideoToSCNNode(url: String, node: SCNNode) {
 }
 ```
 
-- Note: The app uses the YouTube Data API to search for movie trailers. Refer to the YouTube Data API [documentation][4] to obtain an API key and add it to `Keys.plist`.
+- Note: The app uses the YouTube Data API to search for movie trailers. Refer to the YouTube Data API [documentation][4] to obtain an API key and add it to [`Keys.plist`](https://github.com/waitingcheung/ARTrailer/blob/a65aab4ef72cc6abe0567e3af926703a8a0fd133/ARTrailer/Resources/Keys.plist#L6).
 
 ```xml
 <plist version="1.0">
