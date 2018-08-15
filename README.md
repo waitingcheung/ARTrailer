@@ -2,10 +2,6 @@
 
 Identify the movie title from a poster, and use SceneKit to display the movie trailer in AR.
 
-## Demo
-
-![](https://user-images.githubusercontent.com/2617118/44137401-e566504a-a0a2-11e8-8ace-c6191e8ea720.gif)
-
 ## Overview
 
 This app runs an [ARKit][0] world-tracking session with content displayed in a SceneKit view. The app uses the [Vision][1] framework to find regions of visible texts on camera images, and pass the detected regions to the [Tesseract][2] framework for OCR. After text recognition, the app displays a movie trailer in AR world space.
@@ -13,6 +9,10 @@ This app runs an [ARKit][0] world-tracking session with content displayed in a S
 [0]:https://developer.apple.com/documentation/arkit
 [1]:https://developer.apple.com/documentation/vision
 [2]:https://github.com/gali8/Tesseract-OCR-iOS
+
+## Demo
+
+![](https://user-images.githubusercontent.com/2617118/44137401-e566504a-a0a2-11e8-8ace-c6191e8ea720.gif)
 
 ## Getting Started
 
