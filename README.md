@@ -21,9 +21,18 @@ ARKit requires iOS 11.0 and a device with an A9 (or later) processor. ARKit is n
 ## Installation
 
 1. Run `pod install` and open `ARTrailer.xcworkspace`.
-2. Add your [YouTubeDataAPI](https://developers.google.com/youtube/v3) key to [Keys.plist](ARTrailer/Resources/Keys.plist)
+2. This app uses the [YouTube Data API](https://developers.google.com/youtube/v3/getting-started) to search for movie trailers. Add the API key to [Keys.plist](ARTrailer/Resources/Keys.plist).
 
-Note: You need [quota](https://developers.google.com/youtube/v3/getting-started#quota) for the YouTubeDataAPI to send a query request. To test it without quota, you may hard code the video id in the YouTube url.
+Note: You need [quota](https://developers.google.com/youtube/v3/getting-started#quota) for the YouTube Data API to send a query request. To test it without quota, you may hard code the video id in the YouTube url.
+
+```xml
+<plist version="1.0">
+<dict>
+    <key>YouTubeDataAPI</key>
+    <string></string>
+</dict>
+</plist>
+```
 
 ## Run the AR Session and Process Camera Images
 
@@ -183,17 +192,6 @@ func addVideoToSCNNode(url: String, node: SCNNode) {
 
     node.addChildNode(tvPlaneNode)
 }
-```
-
-- Note: The app uses the YouTube Data API to search for movie trailers. Refer to the YouTube Data API [documentation][4] to obtain an API key and add it to [`Keys.plist`](https://github.com/waitingcheung/ARTrailer/blob/a65aab4ef72cc6abe0567e3af926703a8a0fd133/ARTrailer/Resources/Keys.plist#L6).
-
-```xml
-<plist version="1.0">
-<dict>
-    <key>YouTubeDataAPI</key>
-    <string></string>
-</dict>
-</plist>
 ```
 
 [4]:https://developers.google.com/youtube/v3/getting-started
