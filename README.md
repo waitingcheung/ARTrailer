@@ -23,6 +23,8 @@ ARKit requires iOS 11.0 and a device with an A9 (or later) processor. ARKit is n
 1. Run `pod install` and open `ARTrailer.xcworkspace`.
 2. Add your [YouTubeDataAPI](https://developers.google.com/youtube/v3) key to [Keys.plist](ARTrailer/Resources/Keys.plist)
 
+Note: You need [quota](https://developers.google.com/youtube/v3/getting-started#quota) for the YouTubeDataAPI to send a query request. To test it without quota, you may hard code the video id in the YouTube url.
+
 ## Run the AR Session and Process Camera Images
 
 The `ViewController` class manages the AR session and displays AR overlay content in a SceneKit view. ARKit captures video frames from the camera and provides them to the view controller in the [`session(_:didUpdate:)`](https://github.com/waitingcheung/ARTrailer/blob/a65aab4ef72cc6abe0567e3af926703a8a0fd133/ARTrailer/ViewController.swift#L143) method, which then calls the `processCurrentImage()` method to perform text recognition.
