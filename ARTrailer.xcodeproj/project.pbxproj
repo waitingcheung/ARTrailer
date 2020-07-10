@@ -245,7 +245,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ARTrailer/Pods-ARTrailer-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ARTrailer/Pods-ARTrailer-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TesseractOCRiOS/TesseractOCR.framework",
@@ -260,7 +260,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ARTrailer/Pods-ARTrailer-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ARTrailer/Pods-ARTrailer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9F6BF12B72185B9017B688A8 /* [CP] Check Pods Manifest.lock */ = {
@@ -441,7 +441,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G9RL9AK4E8;
+				DEVELOPMENT_TEAM = 6CLA83M45F;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/ARTrailer/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
@@ -465,7 +465,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G9RL9AK4E8;
+				DEVELOPMENT_TEAM = 6CLA83M45F;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/ARTrailer/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;

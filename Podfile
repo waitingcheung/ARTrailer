@@ -1,11 +1,11 @@
-platform :ios, '11.3'
+platform :ios, '13.0'
 
 use_frameworks!
 
 target 'ARTrailer' do
 	pod 'TesseractOCRiOS', '4.0.0'
     pod 'YoutubeDirectLinkExtractor'
-    pod 'Alamofire', '~> 4.7'
+    pod 'Alamofire', '~> 5.2'
     pod 'SwiftyJSON', '~> 4.0'
 end
 

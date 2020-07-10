@@ -338,14 +338,14 @@ extension ViewController: ARSCNViewDelegate {
         let key = readKey(key: "YouTubeDataAPI")
         let query = movieTitle + " trailer"
         let youtubeAPI = ("https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=" + query + "&key=" + key).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        Alamofire.request(youtubeAPI!).responseJSON { response in
+        AF.request(youtubeAPI!).responseJSON { response in
             // print("Request: \(String(describing: response.request))")   // original url request
             // print("Response: \(String(describing: response.response))") // http url response
             // print("Result: \(response.result)")                         // response serialization result
             
-            if let json = response.result.value {
-                // print("JSON: \(json)") // serialized json response
-                let jsonObject = JSON(json)
+            switch response.result {
+            case .success(let value):
+                let jsonObject = JSON(value)
                 let videoId = jsonObject["items"][0]["id"]["videoId"].stringValue
                 let url = "https://www.youtube.com/watch?v=" + videoId
                 // print("URL: " + url)
@@ -361,7 +361,8 @@ extension ViewController: ARSCNViewDelegate {
                     print(error)
                     self.videoLoaded = false
                 }
-            } else {
+            case .failure(let error):
+                print(error)
                 self.videoLoaded = false
             }
             
