@@ -23,8 +23,6 @@ ARKit requires iOS 11.0 and a device with an A9 (or later) processor. ARKit is n
 1. Run `pod install` and open `ARTrailer.xcworkspace`.
 2. This app uses the [YouTube Data API](https://developers.google.com/youtube/v3/getting-started) to search for movie trailers. Add the API key to [Keys.plist](ARTrailer/Resources/Keys.plist).
 
-Note: You need [quota](https://developers.google.com/youtube/v3/getting-started#quota) for the YouTube Data API to send a query request. To test it without quota, you may hard code the video id in the YouTube url.
-
 ```xml
 <plist version="1.0">
 <dict>
@@ -33,6 +31,8 @@ Note: You need [quota](https://developers.google.com/youtube/v3/getting-started#
 </dict>
 </plist>
 ```
+
+Note: You need [quota](https://developers.google.com/youtube/v3/getting-started#quota) for the YouTube Data API to send a query request. To test it without quota, you may hard code the video id in the YouTube url.
 
 ## Run the AR Session and Process Camera Images
 
