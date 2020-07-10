@@ -20,7 +20,8 @@ ARKit requires iOS 11.0 and a device with an A9 (or later) processor. ARKit is n
 
 ## Installation
 
-Run `pod install` and open `ARTrailer.xcworkspace`.
+1. Run `pod install` and open `ARTrailer.xcworkspace`.
+2. Add your [YouTubeDataAPI](https://developers.google.com/youtube/v3) key to [Keys.plist](ARTrailer/Resources/Keys.plist)
 
 ## Run the AR Session and Process Camera Images
 
