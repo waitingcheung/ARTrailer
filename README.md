@@ -32,7 +32,7 @@ ARKit requires iOS 11.0 and a device with an A9 (or later) processor. ARKit is n
 </plist>
 ```
 
-Note: You need [quota](https://developers.google.com/youtube/v3/getting-started#quota) for the YouTube Data API to send a query request. To test it without quota, you may hard code the video id in the YouTube url.
+Note: You need [quota](https://developers.google.com/youtube/v3/getting-started#quota) for the YouTube Data API to send a query request. To test video overlay without quota, you may hard code the [videoId](https://github.com/waitingcheung/ARTrailer/blob/2691fb98e20361bf381ac1011f363076755a2b64/ARTrailer/ViewController.swift#L349) in the YouTube url.
 
 ## Run the AR Session and Process Camera Images
 
